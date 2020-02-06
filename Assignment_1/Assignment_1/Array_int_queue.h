@@ -5,10 +5,10 @@
 
 class Array_int_queue : public Int_queue {
 private:
-	int msize;
-	int head;
-	int tail;
-	int *queue;
+	int msize; // max size of the queue
+	int head; // head pointer
+	int tail; // rear pointer
+	int *queue; // pointer to the queue array
 public:
 	void enqueue(int) override;
 	void dequeue() override;

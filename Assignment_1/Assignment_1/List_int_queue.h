@@ -6,9 +6,9 @@
 
 class List_int_queue : public Int_queue {
 private:
-	int msize;
-	int count;
-	std::list<int> *queue;
+	int msize; // max size of the queue
+	int count; // keeping track of the current number of elements in the queue
+	std::list<int> *queue; // pointer to the list, representing the queue
 public:
 	void enqueue(int) override;
 	void dequeue() override;
@@ -18,4 +18,4 @@ public:
 	~List_int_queue();
 };
 
-#endif //
+#endif
