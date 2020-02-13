@@ -20,7 +20,8 @@ PolarPoint_functable PolarPoint_vmt = { Point_Point, PolarPoint_makePolarPoint }
 void PolarPoint_PolarPoint(PolarPoint *p) 
 {
 	Point_Point(p->inherited);
-	p->vmt = &PolarPoint_vmt; }
+	p->vmt = &PolarPoint_vmt;
+}
 
 PolarPoint* PolarPoint_makePolarPoint(const double x, const double y)
 {
