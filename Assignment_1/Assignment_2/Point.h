@@ -1,27 +1,33 @@
 #pragma once
-#include <cstdlib>
 
-struct Point;
+struct point;
 
 typedef struct
 {
-	void(*Point) (struct Point*);
-	double (*getx)(struct Point*);
-	double (*gety)(struct Point*);
-} Point_functable;
+	void (*point)(struct point*);
+	double (*get_x)(struct point*);
+	double (*get_y)(struct point*);
+} point_func_table;
 
-typedef struct Point {
+typedef struct point
+{
 	double x;
 	double y;
-	Point_functable *vmt;
-} Point;
+	point_func_table* vmt;
+} point;
 
-void Point_Point(Point *p);
-double Point_getx(Point* p);
-double Point_gety(Point* p);
+void point_point(point* p);
+double point_get_x(point* p);
+double point_get_y(point* p);
 
-Point_functable Point_vmt = { Point_Point, Point_getx, Point_gety };
+point_func_table point_vmt = {point_point, point_get_x, point_get_y};
 
-void Point_Point(Point* p, double x, double y) { p->vmt = &Point_vmt; p->x = x; p->y = y; }
-double Point_getx(Point* p) { p->x; }
-double Point_gety(Point* p) { return p->y; }
+inline void point_point(point* p, const double x, const double y)
+{
+	p->vmt = &point_vmt;
+	p->x = x;
+	p->y = y;
+}
+
+inline double point_get_x(point* p) { return p->x; }
+inline double point_get_y(point* p) { return p->y; }

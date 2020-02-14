@@ -1,32 +1,37 @@
 #pragma once
 #include "Point.h"
+#include <cstdlib>
 
-struct CartPoint;
+struct cart_point;
 
-typedef struct {
-	void(*Point) (struct Point*);
-	CartPoint* (*makeCartPoint) (double x, double y);
-} CartPoint_functable;
+typedef struct
+{
+	void (*point) (struct point*);
+	cart_point* (*makeCartPoint) (double x, double y);
+} cart_point_func_table;
 
-typedef struct CartPoint {
-	Point inherited;
-	CartPoint_functable *vmt;
-} CartPoint;
+typedef struct cart_point
+{
+	point* inherited;
+	cart_point_func_table* vmt;
+} cart_point;
 
-void CartPoint_CartPoint(CartPoint* p);
-CartPoint* CartPoint_makeCartPoint(double x, double y);
+void cart_point_cart_point(cart_point* p);
+cart_point* cart_point_make_cart_point(double x, double y);
 
-CartPoint_functable CartPoint_vmt = {Point_Point, CartPoint_makeCartPoint };
-void CartPoint_CartPoint(CartPoint* p) {
-	Point_Point(p->inherited);
-	p->vmt = &CartPoint_vmt;
+cart_point_func_table cart_point_vmt = {point_point, cart_point_make_cart_point};
+
+inline void cart_point_cart_point(cart_point* p)
+{
+	point_point(p->inherited);
+	p->vmt = &cart_point_vmt;
 }
 
 
-CartPoint* CartPoint_makeCartPoint(const double x, const double y)
+inline cart_point* cart_point_make_cart_point(const double x, const double y)
 {
-	struct CartPoint* p = (CartPoint*)malloc(sizeof(struct CartPoint));
-	p->inherited.x = x;
-	p->inherited.y = y;
+	const auto p = static_cast<cart_point*>(malloc(sizeof(struct cart_point)));
+	p->inherited->x = x;
+	p->inherited->y = y;
 	return p;
 }
