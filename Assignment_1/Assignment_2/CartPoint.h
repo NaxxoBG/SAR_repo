@@ -7,7 +7,7 @@ struct cart_point;
 typedef struct
 {
 	void (*point) (struct point*);
-	cart_point* (*makeCartPoint) (double x, double y);
+	cart_point* (*make_cart_point) (double x, double y);
 } cart_point_func_table;
 
 typedef struct cart_point
@@ -26,7 +26,6 @@ inline void cart_point_cart_point(cart_point* p)
 	point_point(p->inherited);
 	p->vmt = &cart_point_vmt;
 }
-
 
 inline cart_point* cart_point_make_cart_point(const double x, const double y)
 {

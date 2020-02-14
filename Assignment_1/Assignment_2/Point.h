@@ -22,6 +22,13 @@ double point_get_y(point* p);
 
 point_func_table point_vmt = {point_point, point_get_x, point_get_y};
 
+inline void point_point(point* p)
+{
+	p->vmt = &point_vmt;
+	p->x = 0;
+	p->y = 0;
+}
+
 inline void point_point(point* p, const double x, const double y)
 {
 	p->vmt = &point_vmt;
