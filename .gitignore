@@ -1,1 +1,8 @@
 *.ipch
+*.lastbuildstate
+*.db-wal
+*.db-shm
+*.opendb
+*.tlog
+*.idb
+*.db
