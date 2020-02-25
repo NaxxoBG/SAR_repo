@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Visitor.h"
+class Visitor;
 
 class Animal
 {

@@ -1,4 +1,10 @@
-#include "Visitor.h"
+
+#include <cstdio>
+
+#include "Fish.h"
+#include "Monkey.h"
+#include "Tiger.h"
+
 
 class Tourist : Visitor
 {
@@ -12,25 +18,25 @@ public:
 		printf("I have visited:\nMonkeys: %d, Tigers: %d, Fish: %d", monkey_count_, tiger_count_, fish_count_);
 	}
 	
-	void visit(Fish* f) override;
-	void visit(Monkey* m) override;
-	void visit(Tiger* t) override;
+	void visit(Fish &f) override;
+	void visit(Monkey &m) override;
+	void visit(Tiger &t) override;
 };
 
-void Tourist::visit(Fish *f)
+void Tourist::visit(Fish &f)
 {
 	this->fish_count_++;
-	f->cleanTeeth();
+	f.cleanTeeth();
 }
 
-void Tourist::visit(Monkey *m)
+void Tourist::visit(Monkey &m)
 {
 	this->monkey_count_++;
-	m->feedBanana();
+	m.feedBanana();
 }
 
-void Tourist::visit(Tiger *t)
+void Tourist::visit(Tiger &t)
 {
 	this->tiger_count_++;
-	t->scratchBack();
+	t.scratchBack();
 }

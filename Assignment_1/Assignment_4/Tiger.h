@@ -1,8 +1,10 @@
 #pragma once
+
 #include "Visitor.h"
 #include <ostream>
-#include <iostream>
 #include "Animal.h"
+
+#include <iostream>
 
 class Tiger : Animal
 {
@@ -15,7 +17,7 @@ public:
 	}
 };
 
-void Tiger::accept(Visitor & v)
+inline void Tiger::accept(Visitor & v)
 {
 	v.visit(*this);
 }

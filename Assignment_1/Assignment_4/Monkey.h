@@ -2,18 +2,19 @@
 
 #include "Animal.h"
 #include <iostream>
+#include "Visitor.h"
 
 class Monkey : Animal
 {
+	void accept(Visitor& v) override;
 public:
 	void feedBanana()
 	{
 		std::cout << "Feeding monkey with a banana." << std::endl;
 	}
-	void accept(Visitor& v) override;
 };
 
-void Monkey::accept(Visitor &v)
+inline void Monkey::accept(Visitor &v)
 {
 	v.visit(*this);
 }

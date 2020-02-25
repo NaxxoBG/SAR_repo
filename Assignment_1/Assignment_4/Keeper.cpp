@@ -1,23 +1,27 @@
-#include "Visitor.h"
+#include "Monkey.h"
+#include "Fish.h"
+#include "Tiger.h"
+
+
 
 class Keeper : Visitor
 {
-	void visit(Fish* f) override;
-	void visit(Monkey* m) override;
-	void visit(Tiger* t) override;
+	void visit(Fish &f) override;
+	void visit(Monkey &m) override;
+	void visit(Tiger &t) override;
 };
 
-void Keeper::visit(Fish *f)
+void Keeper::visit(Fish &f)
 {
-	f->cleanTeeth();
+	f.cleanTeeth();
 }
 
-void Keeper::visit(Monkey *m)
+void Keeper::visit(Monkey &m)
 {
-	m->feedBanana();
+	m.feedBanana();
 }
 
-void Keeper::visit(Tiger *t)
+void Keeper::visit(Tiger &t)
 {
-	t->scratchBack();
+	t.scratchBack();
 }

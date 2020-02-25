@@ -17,7 +17,7 @@ public:
 	}
 };
 
-void Fish::accept(Visitor &v)
+inline void Fish::accept(Visitor &v)
 {
 	v.visit(*this);
 }
