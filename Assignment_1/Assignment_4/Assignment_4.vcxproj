@@ -152,8 +152,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Assignment_4.cpp" />
-    <ClCompile Include="Keeper.cpp" />
-    <ClCompile Include="Tourist.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h" />
@@ -161,6 +159,7 @@
     <ClInclude Include="Keeper.h" />
     <ClInclude Include="Monkey.h" />
     <ClInclude Include="Tiger.h" />
+    <ClInclude Include="Tourist.h" />
     <ClInclude Include="Visitor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

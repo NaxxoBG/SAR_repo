@@ -7,6 +7,7 @@
 #include "Tiger.h"
 #include "Monkey.h"
 #include "Keeper.h"
+#include "Tourist.h"
 
 void Fish::accept(Visitor &v)
 {
@@ -28,6 +29,7 @@ int main()
 	std::queue<Animal*> zoo;
 
 	Keeper jack;
+	Tourist jim;
 	
 	Fish *nemo = new Fish();
 	Tiger *shere_khan = new Tiger();
@@ -41,9 +43,10 @@ int main()
 
 	while (!zoo.empty())
 	{
-		zoo.front()->accept(jack);
+		Animal *a = zoo.front();
+		a->accept(jack);
+		a->accept(jim);
+		jim.print();
 		zoo.pop();
 	}
 }
-
-
