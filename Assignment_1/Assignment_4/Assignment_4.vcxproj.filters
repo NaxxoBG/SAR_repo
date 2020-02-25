@@ -35,10 +35,13 @@
     <ClInclude Include="Fish.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Tiger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Monkey.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tiger.h">
+    <ClInclude Include="Keeper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,7 +6,7 @@
 #include "Tiger.h"
 
 
-class Tourist : Visitor
+class Tourist : public Visitor
 {
 	int monkey_count_;
 	int tiger_count_;

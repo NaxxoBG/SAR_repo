@@ -6,18 +6,12 @@
 #include "Visitor.h"
 #include "Animal.h"
 
-class Fish : Animal
+class Fish : public Animal
 {
-	void accept(Visitor& v) override;
-
 public:
 	void cleanTeeth()
 	{
 		std::cout << "Cleaning fish' teeth." << std::endl;
 	}
+	void accept(Visitor& v) override;
 };
-
-inline void Fish::accept(Visitor &v)
-{
-	v.visit(*this);
-}

@@ -1,15 +1,4 @@
-#include "Monkey.h"
-#include "Fish.h"
-#include "Tiger.h"
-
-
-
-class Keeper : Visitor
-{
-	void visit(Fish &f) override;
-	void visit(Monkey &m) override;
-	void visit(Tiger &t) override;
-};
+#include "Keeper.h"
 
 void Keeper::visit(Fish &f)
 {

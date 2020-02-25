@@ -6,18 +6,12 @@
 
 #include <iostream>
 
-class Tiger : Animal
+class Tiger : public Animal
 {
-	void accept(Visitor& v) override;
-
 public:
 	void scratchBack()
 	{
 		std::cout << "Scratching tiger's back." << std::endl;
 	}
+	void accept(Visitor& v) override;
 };
-
-inline void Tiger::accept(Visitor & v)
-{
-	v.visit(*this);
-}
