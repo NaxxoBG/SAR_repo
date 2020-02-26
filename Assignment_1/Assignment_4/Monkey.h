@@ -10,6 +10,7 @@ public:
 	void feedBanana()
 	{
 		std::cout << "Feeding monkey with a banana." << std::endl;
+		notify(Events::monkeyFed);
 	}
 	void accept(Visitor& v) override;
 };

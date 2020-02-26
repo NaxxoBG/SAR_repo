@@ -151,13 +151,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimalRightsGroup.cpp" />
     <ClCompile Include="Assignment_4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animal.h" />
+    <ClInclude Include="AnimalRightsGroup.h" />
+    <ClInclude Include="Event.h" />
     <ClInclude Include="Fish.h" />
     <ClInclude Include="Keeper.h" />
     <ClInclude Include="Monkey.h" />
+    <ClInclude Include="Observer.h" />
+    <ClInclude Include="Subject.h" />
     <ClInclude Include="Tiger.h" />
     <ClInclude Include="Tourist.h" />
     <ClInclude Include="Visitor.h" />

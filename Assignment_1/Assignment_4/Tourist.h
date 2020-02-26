@@ -21,16 +21,16 @@ public:
 	void visit(Fish &f) override
 	{
 		this->fish_count_++;
-		f.cleanTeeth();
+		this->print();
 	}
 	void visit(Monkey &m) override
 	{
 		this->monkey_count_++;
-		m.feedBanana();
+		this->print();
 	}
 	void visit(Tiger &t) override
 	{
 		this->tiger_count_++;
-		t.scratchBack();
+		this->print();
 	}
 };
