@@ -1,0 +1,28 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "args": [
+        "127.0.0.1"
+      ],
+      "name": "client.cpp",
+      "project": "src\\client.cpp",
+      "type": "default"
+    },
+    {
+      "name": "server.cpp",
+      "project": "src\\server.cpp",
+      "type": "default"
+    },
+    {
+      "args": [
+        "127.0.0.1"
+      ],
+      "name": "client.exe (bin\\client.exe)",
+      "project": "CMakeLists.txt",
+      "projectTarget": "client.exe (bin\\client.exe)",
+      "type": "default"
+    }
+  ]
+}

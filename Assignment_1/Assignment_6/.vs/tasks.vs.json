@@ -1,0 +1,16 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskName": "task-CMakeLists",
+      "appliesTo": "CMakeLists.txt",
+      "type": "launch"
+    },
+    {
+      "taskName": "task-Assignment_6",
+      "appliesTo": "/",
+      "type": "launch"
+      
+    }
+  ]
+}
