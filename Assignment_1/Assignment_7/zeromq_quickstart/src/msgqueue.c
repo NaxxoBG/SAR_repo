@@ -10,12 +10,12 @@ int main (void)
     //  Socket facing clients
     void *frontend = zmq_socket (context, ZMQ_ROUTER);
     int rc = zmq_bind (frontend, "tcp://*:5559");
-    //assert (rc == 0);
+    assert (rc == 0);
 
     //  Socket facing services
     void *backend = zmq_socket (context, ZMQ_DEALER);
     rc = zmq_bind (backend, "tcp://*:5560");
-    //assert (rc == 0);
+    assert (rc == 0);
 
     //  Start the proxy
     zmq_proxy (frontend, backend, NULL);
