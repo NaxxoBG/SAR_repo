@@ -18,21 +18,21 @@ int main (void)
         char *string = s_recv (responder);
         printf ("Received request: [%s]\n", string);
         int x = 0;
-		x = atoi(string);
+		x = atoi(string); // convert string which should be a number to int
 		free (string);
 
 		
-		x = x*x;
+		x = x*x; // square it
 		printf("Number squared is %d\n", x);
 		char buffer[10];
-		snprintf(buffer, 10, "%d", x);
+		snprintf(buffer, 10, "%d", x); // convert the squared int to string so it could be sent to the client
         //  Do some 'work'
         sleep (1);
-		if (x >= 1111111111) {
+		if (x >= 1111111111) { // if the square is above that value, sent Error instead
 			s_send (responder, "Error");
 		} else {
 			//  Send reply back to client
-			s_send (responder, buffer);
+			s_send (responder, buffer); // send the square back to the client
 		}
     }
     //  We never get here, but clean up anyhow
