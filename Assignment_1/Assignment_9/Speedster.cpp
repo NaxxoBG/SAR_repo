@@ -4,10 +4,11 @@
 
 #include "Car.h"
 
-Speedster::Speedster()
+Speedster::Speedster(Horn *horn)
 {
 	this->speed = 0;
 	this->zero_to_hundred = 6;
+	this->horn = horn;
 }
 
 void Speedster::applyThrottle()

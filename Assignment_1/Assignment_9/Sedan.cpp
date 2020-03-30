@@ -7,10 +7,11 @@
 
 #include <mutex>
 
-Sedan::Sedan()
+Sedan::Sedan(Horn *horn)
 {
 	this->speed = 0;
 	this->zero_to_hundred = 10;
+	this->horn = horn;
 }
 
 void Sedan::applyThrottle()

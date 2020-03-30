@@ -4,10 +4,11 @@
 
 #include "Car.h"
 
-Truck::Truck()
+Truck::Truck(Horn *horn)
 {
 	this->speed = 0;
 	this->zero_to_hundred = 20;
+	this->horn = horn;
 }
 
 void Truck::applyThrottle()

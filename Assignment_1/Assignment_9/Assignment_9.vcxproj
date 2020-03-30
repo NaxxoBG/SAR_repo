@@ -155,9 +155,11 @@
     <ClCompile Include="Sedan.cpp" />
     <ClCompile Include="Speedster.cpp" />
     <ClCompile Include="Truck.cpp" />
+    <ClCompile Include="UniversalHorn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Car.h" />
+    <ClInclude Include="Horn.h" />
     <ClInclude Include="Sedan.h" />
     <ClInclude Include="Speedster.h" />
     <ClInclude Include="Truck.h" />
