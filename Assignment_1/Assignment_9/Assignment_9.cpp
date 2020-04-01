@@ -4,46 +4,26 @@
 #include <iostream>
 #include <vector>
 
-
-#include "Sedan.h"
-#include "Speedster.h"
-#include "Truck.h"
+#include "CarFactory.h"
 
 int main()
 {
-    std::cout << "Throttling...!\n";
-
-    Car* sd = new Sedan();
-	Car* sr = new Speedster();
-	Car* tr = new Truck();
+	CarFactory f;
+	Car* sedan = f.getVehicle("sedan");
 	
-	std::vector<Car*> cars = { sd, sr, tr };
+	std::vector<Car*> cars = { sedan };
 
-	for (int i = 0; i <= 2; i++)
-	{
-		int a = 0;
+    for (auto car : cars)
+    {
+		car->applyThrottle();
+    	std::this_thread::sleep_for(std::chrono::seconds(7)); // throttling for 7 secs
 
-		cars[i]->applyThrottle();
+		car->applyBrake();
+		std::this_thread::sleep_for(std::chrono::seconds(7)); // braking for 3 secs
 
-		while (a < 7)
-		{
-			std::this_thread::sleep_for(std::chrono::seconds(1));
-			cars[i]->dashboard();
-			a += 1;
-		}
-		a = 0;
-		std::cout << "Braking...!\n";
-		cars[i]->applyBrake();
-		while (a < 3)
-		{
-			std::this_thread::sleep_for(std::chrono::seconds(1));
-			cars[i]->dashboard();
-			a += 1;
-		}
-		std::cout << "Trying to reverse...\n";
-		cars[i]->setGear(-1);
-		std::cout << "Dashboard:\n";
-		cars[i]->dashboard();
-		std::cout << "--------------------\n\n";
+    	std::cout << "Trying to reverse...\n";
+		car->reverse();
+		static_cast<radiowrapper>(car).playRadioSong();
+    	std::cout << "--------------------\n\n";
 	}
 }

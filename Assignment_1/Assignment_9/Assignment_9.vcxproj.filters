@@ -27,7 +27,16 @@
     <ClCompile Include="Truck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UniversalHorn.cpp">
+    <ClCompile Include="Engine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransmissionSedan.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransmissionSpeedster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TransmissionTruck.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,5 +56,49 @@
     <ClInclude Include="Horn.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Brake.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transmission.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TransmissionSedan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TransmissionSpeedster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TransmissionTruck.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CarFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SpecialHorn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UniversalHorn.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="logwrapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="radiowrapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="decorator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\..\..\..\Downloads\island_music_x.wav">
+      <Filter>Header Files</Filter>
+    </Media>
+    <Media Include="..\..\..\..\..\Downloads\this_is_the_end_x.wav">
+      <Filter>Header Files</Filter>
+    </Media>
   </ItemGroup>
 </Project>

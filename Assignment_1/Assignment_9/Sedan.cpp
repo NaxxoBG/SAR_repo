@@ -5,28 +5,33 @@
 #include <chrono>
 #include "Sedan.h"
 
-#include <mutex>
-
-Sedan::Sedan(Horn *horn)
+Sedan::Sedan(Engine *en, Brake *brake, Transmission * ts, Horn * horn)
 {
-	this->speed = 0;
-	this->zero_to_hundred = 10;
-	this->horn = horn;
+	engine_ = en;
+	brake_ = brake;
+	transmission_ = ts;
+	horn_ = horn;
 }
 
 void Sedan::applyThrottle()
 {
+	
 	if (decelerate != nullptr)
 	{
 		this->breaking = false;
 		decelerate->join();
+		decelerate = nullptr;
 	}
 	accelerate = new std::thread([this]
 	{
-		while (!this->breaking && this->getSpeed() != 100)
+		while (!this->breaking && engine_->getSpeed() != 100)
 		{
-			this->setSpeed(speed += 100.0/zero_to_hundred);
-			this->adjustGear();
+			engine_->applyThrottle();
+			this->setSpeed(engine_->getSpeed());
+			brake_->setSpeed(this->getSpeed());
+			transmission_->setSpeed(this->getSpeed());
+			transmission_->adjustGear();
+			this->dashboard();
 			std::this_thread::sleep_for(std::chrono::seconds(1));
 		}
 	});
@@ -34,52 +39,35 @@ void Sedan::applyThrottle()
 
 void Sedan::applyBrake()
 {
+	
 	if (accelerate != nullptr)
 	{
 		this->breaking = true;
 		accelerate->join();
+		accelerate = nullptr;
 	}
 	decelerate = new std::thread([this]
 	{
 		while (this->breaking && this->getSpeed() != 0)
 		{
-			this->setSpeed(speed -= 100.0/zero_to_hundred);
-			this->adjustGear();
+			brake_->applyBrake();
+			this->setSpeed(brake_->getSpeed());
+			engine_->setSpeed(this->getSpeed());
+			transmission_->setSpeed(this->getSpeed());
+			transmission_->adjustGear();
+			this->dashboard();
 			std::this_thread::sleep_for(std::chrono::seconds(1));
 		}
 	});
 }
 
-void Sedan::setGear(int g)
-{
-	if (g >=-1 && g <= 3)
-	{
-		if (g == -1 && speed != 0)
-		{
-			printf("%s", "Stop before going in reverse\n");
-			return;
-		}
-		this->gear = g;
-	}
-}
-
-void Sedan::adjustGear()
-{
-	if (speed <= 40)
-	{
-		this->setGear(1);
-	}
-	else if (speed <= 70 && speed > 40)
-	{
-		this->setGear(2);
-	}
-	else if (speed <= 100 && speed > 70)
-	{
-		this->setGear(3);
-	}
-}
-
 void Sedan::honk()
 {
-	printf("%s", "Beeeeeeeeeeeeeep\n");
+	horn_->honk();
+}
+
+void Sedan::reverse()
+{
+	this->transmission_->setGear(-1);
+	this->dashboard();
 }

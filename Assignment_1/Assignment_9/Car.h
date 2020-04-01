@@ -1,16 +1,20 @@
 #pragma once
+#include <mutex>
 #include <thread>
+
+#include "Brake.h"
+#include "Engine.h"
+#include "Horn.h"
+#include "Transmission.h"
 
 class Car
 {
-	virtual void adjustGear() = 0;
 public:
-	virtual ~Car() = default;
 	virtual void applyThrottle() = 0;
 	virtual void applyBrake() = 0;
 	virtual void honk() = 0;
-	virtual void setGear(int g) = 0;
-	double getSpeed()
+	virtual void reverse() = 0;
+	double getSpeed() const
 	{
 		return this->speed;
 	}
@@ -18,20 +22,23 @@ public:
 	{
 		return this->speed = speed;
 	}
-	int getGear()
+	void dashboard() const
 	{
-		return this->gear;
+		printf("Speed: %lf; Gear: %d\n", this->getSpeed(), transmission_->getGear());
 	}
-	void dashboard()
+	void setHorn(Horn *horn)
 	{
-		printf("Speed: %lf; Gear: %d\n", this->getSpeed(), this->getGear());
+		this->horn_ = horn;
 	}
 	
 protected:
 	double speed = 0;
-	double zero_to_hundred = 0;
 	bool breaking;
-	int gear = 0; // 0 is neutral
+	std::mutex m;
 	std::thread* accelerate = nullptr;
 	std::thread* decelerate = nullptr;
+	Horn *horn_;
+	Engine *engine_;
+	Brake *brake_;
+	Transmission *transmission_;
 };

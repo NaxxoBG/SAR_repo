@@ -4,5 +4,5 @@
 class Horn
 {
 public:
-	virtual void honk(char* sound, int times_repeated) = 0;
+	virtual void honk() = 0;
 };

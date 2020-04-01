@@ -2,16 +2,16 @@
 
 #include "Car.h"
 #include "Horn.h"
+#include "Engine.h"
+#include  "Brake.h"
+#include "Transmission.h"
 
 class Sedan : public Car
 {
-	void adjustGear() override;
 public:
-	Sedan(Horn* horn);
+	Sedan(Engine *en, Brake *brake, Transmission *ts, Horn *horn);
 	void applyThrottle() override;
 	void applyBrake() override;
 	void honk() override;
-	void setGear(int g) override;
-private:
-	Horn *horn;
+	void reverse() override;
 };

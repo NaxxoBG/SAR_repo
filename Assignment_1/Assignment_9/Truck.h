@@ -5,14 +5,10 @@
 
 class Truck : public Car
 {
-	void adjustGear() override;
 public:
-	Truck(Horn *horn);
+	Truck(Engine *en, Brake *brake, Transmission *ts, Horn *horn);
 	void applyThrottle() override;
 	void applyBrake() override;
 	void honk() override;
-	void setGear(int g) override;
-
-private:
-	Horn *horn;
+	void reverse() override;
 };
