@@ -42,10 +42,5 @@ inline void radiowrapper::reverse()
 inline void radiowrapper::playRadioSong()
 {
 	printf("%s\n", "Playing radio...");
-	//std::string a1 = ;
-	std::string a2 = "apple.wav";
-	
-	//PlaySound(TEXT("island_music_x.wav"), NULL, SND_FILENAME | SND_ASYNC);
-	//PlaySound(TEXT("this_is_the_end_x.wav"), NULL, SND_FILENAME | SND_ASYNC);
-	//mciSendString(TEXT("play island_music_x.wav"), NULL, 0, NULL);
+	PlaySound(TEXT("island_music_x"), NULL, SND_FILENAME | SND_ASYNC);
 }

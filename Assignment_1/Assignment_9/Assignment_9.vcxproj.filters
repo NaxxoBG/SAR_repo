@@ -93,12 +93,4 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <Media Include="..\..\..\..\..\Downloads\island_music_x.wav">
-      <Filter>Header Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\this_is_the_end_x.wav">
-      <Filter>Header Files</Filter>
-    </Media>
-  </ItemGroup>
 </Project>

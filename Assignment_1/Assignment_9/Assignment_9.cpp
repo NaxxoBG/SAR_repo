@@ -9,12 +9,14 @@
 int main()
 {
 	CarFactory f;
-	Car* sedan = f.getVehicle("sedan");
+	auto sedan = f.getVehicle("sedan");
 	
 	std::vector<Car*> cars = { sedan };
 
     for (auto car : cars)
     {
+    	// to test the radio decorator functionality, 
+		static_cast<radiowrapper>(car).playRadioSong();
 		car->applyThrottle();
     	std::this_thread::sleep_for(std::chrono::seconds(7)); // throttling for 7 secs
 
@@ -23,7 +25,6 @@ int main()
 
     	std::cout << "Trying to reverse...\n";
 		car->reverse();
-		static_cast<radiowrapper>(car).playRadioSong();
     	std::cout << "--------------------\n\n";
 	}
 }
