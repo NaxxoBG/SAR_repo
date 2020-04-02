@@ -34,7 +34,6 @@ public:
 protected:
 	double speed = 0;
 	bool breaking;
-	std::mutex m;
 	std::thread* accelerate = nullptr;
 	std::thread* decelerate = nullptr;
 	Horn *horn_;

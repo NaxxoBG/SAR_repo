@@ -9,7 +9,7 @@
 int main()
 {
 	CarFactory f;
-	auto sedan = f.getVehicle("sedan");
+	auto sedan = f.getVehicle("sedan", true);
 	
 	std::vector<Car*> cars = { sedan };
 
@@ -23,6 +23,7 @@ int main()
 		car->applyBrake();
 		std::this_thread::sleep_for(std::chrono::seconds(7)); // braking for 3 secs
 
+		car->honk();
     	std::cout << "Trying to reverse...\n";
 		car->reverse();
     	std::cout << "--------------------\n\n";

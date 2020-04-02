@@ -24,15 +24,15 @@ struct CarFactory
 		if (strcmp(type, "sedan") == 0)
 		{
 			sb = new Brake(10);
-			horn = new UniversalHorn(type, 2);
+			horn = new UniversalHorn("Doot", 2);
 			en = new Engine(10);
 			t = new TransmissionSedan();
-			return new radiowrapper(new logwrapper(new Sedan(en, sb, t, horn))); // example usage of the wrapper
+			return new radiowrapper(new logwrapper(new Sedan(en, sb, t, horn))); // example usage of the wrappers
 		}
 		if (strcmp(type, "speedster") == 0)
 		{
 			sb = new Brake(6);
-			horn = new UniversalHorn(type, 2);
+			horn = new UniversalHorn("Deet", 2);
 			en = new Engine(6);
 			t = new TransmissionSpeedster();
 			return new Speedster(en, sb, t, horn);
@@ -40,7 +40,7 @@ struct CarFactory
 		if (strcmp(type, "Truck") == 0)
 		{
 			sb = new Brake(20);
-			horn = new UniversalHorn(type, 2);
+			horn = new UniversalHorn("Duuu", 2);
 			en = new Engine(20);
 			t = new TransmissionTruck();
 			return new Truck(en, sb, t, horn);
@@ -48,7 +48,7 @@ struct CarFactory
 		return nullptr;
 	}
 
-	Car * getVehicle(char * type, bool special)
+	Car * getVehicle(const char * type, bool special)
 	{
 		auto car = getVehicle(type);
 		if (special)

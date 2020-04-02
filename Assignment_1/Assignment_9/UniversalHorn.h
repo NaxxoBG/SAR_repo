@@ -13,13 +13,13 @@ public:
 
 };
 
-UniversalHorn::UniversalHorn(const char* sound, int repetitions)
+inline UniversalHorn::UniversalHorn(const char* sound, int repetitions)
 {
 	this->sound = sound;
 	this->repetitions = repetitions;
 }
 
-void UniversalHorn::honk()
+inline void UniversalHorn::honk()
 {
 	for (int i = 0; i < repetitions; i++)
 	{
