@@ -10,14 +10,16 @@ bool testDictSet();
 bool testDictHas();
 bool testDictGet();
 bool testDictDel();
+size_t one = 1;
 
 bool testDictSet()
 {
 	Dict<int, string> map = Dict<int, string>();
 
 	map.set(1, "a");
+	map.set(1, "b");
 	
-	return map.domain().front() == 1 && map.range().front() == "a";
+	return map.domain().front() == 1 && map.range().front() == "a" && map.domain().size() == one && map.range().size() == one;
 }
 
 bool testDictHas()
@@ -26,7 +28,7 @@ bool testDictHas()
 
 	map.set(1, "a");
 
-	return map.has(1);
+	return map.has(1) && map.domain().size() == one && map.range().size() == one;
 }
 
 bool testDictGet()
@@ -35,7 +37,7 @@ bool testDictGet()
 
 	map.set(1, "a");
 
-	return map.get(1) == "a";
+	return map.get(1) == "a" && map.domain().size() == one && map.range().size() == one;
 }
 
 bool testDictDel()
@@ -44,7 +46,8 @@ bool testDictDel()
 
 	map.set(1, "a");
 	map.del(1);
-	return !map.has(1);
+	map.del(1);
+	return !map.has(1) && map.domain().empty() && map.range().empty();
 }
 
 int main()
