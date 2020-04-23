@@ -10,11 +10,11 @@ class Dict
 public:
 	/**
 	 * @brief Insert an entry, consisting of the pair of variables key of type K and value val of type V.
-	 * A console warning is printed if an entry with the same key already exists in the map.
-	 * @param key A value that should be used as the key for the key-value pair being entered in to the map
+	 * A console warning is printed if an entry with the same key already exists in the dictionary.
+	 * @param key A value that should be used as the key for the key-value pair being entered in to the dictionary
 	 * @param val The value variable associated with the key passed.
-	 * @pre no such key entered into the map
-	 * @post either an entry with the key-value pair is inserted in the map or a message is printed to the console
+	 * @pre no such key entered into the dictionary
+	 * @post either an entry with the key-value pair is inserted in the dictionary or a message is printed to the console
 	*/
 	void set(K key, V val)
 	{
@@ -24,14 +24,14 @@ public:
 			values_.push_back(val);
 			return;
 		}
-		cout << "An entry with this key already exists in the map!\n";
+		cout << "An entry with this key already exists in the dictionary!\n";
 	}
 
 	/**
-	 * @brief Check whether an entry with the following key exists in the map.
-	 * @param key the value associated with a value in the map
-	 * @pre such a key is entered into the map
-	 * @post true is returned if the key is in the map, false otherwise
+	 * @brief Check whether an entry with the following key exists in the dictionary.
+	 * @param key the value associated with a value in the dictionary
+	 * @pre such a key is entered into the dictionary
+	 * @post true is returned if the key is in the dictionary, false otherwise
 	*/
 	bool has (K key) const
 	{
@@ -41,7 +41,7 @@ public:
 	
 	/**
 	 * @brief Return the value associated with the key passed. If such a value does not exist, return null.
-	 * @param key A value that should be used as the key for the key-value pair being entered in to the map
+	 * @param key A value that should be used as the key for the key-value pair being entered in to the dictionary
 	 * @pre key is in the dictionary
 	 * @post returns the value associated with the specified key, null otherwise
 	*/
@@ -52,7 +52,7 @@ public:
 
 	/**
 	 * @brief Delete the entry with the key passed. If such an entry does not exist, nothing happens.
-	 * @param key A value that should be used as the key for the key-value pair being entered in to the map
+	 * @param key A value that should be used as the key for the key-value pair being entered in to the dictionary
 	 * @pre such a key is entered into the dictionary
 	 * @post either an entry with the key is deleted or a message is printed to the console
 	*/
@@ -65,11 +65,11 @@ public:
 			values_.erase(values_.begin() + index);
 			return;
 		}
-		cout << "An entry with this key does not exist in the map!\n";
+		cout << "An entry with this key does not exist in the dictionary!\n";
 	}
 
 	/**
-	 * @brief Return all values stored in the map.
+	 * @brief Return all values stored in the dictionary.
 	 * @pre Dictionary is initialized
 	 * @post a vector with all values is returned
 	*/
@@ -80,7 +80,7 @@ public:
 
 	
 	/**
-	 * @brief Returns all the keys stored in the map.
+	 * @brief Returns all the keys stored in the dictionary.
 	 * @pre Dictionary is initialized
 	 * @post a vector with all keys is returned
 	*/
