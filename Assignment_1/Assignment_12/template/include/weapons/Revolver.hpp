@@ -9,5 +9,5 @@ public:
 
 private:
 	float getAccuracy() override;
-	const float accuracy = 0.80f;
+	const float accuracy = 0.60f;
 };

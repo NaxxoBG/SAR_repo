@@ -52,7 +52,7 @@ int main(int argc, char **argv)
     s1.addToSelection(units[2]);
 
     UnitSelection s2;
-    s1.attach(&m);
+    s2.attach(&m);
     s2.addToSelection(units[2]);
     s2.addToSelection(units[3]);
 

@@ -19,7 +19,7 @@ public:
 		std::mt19937 engine(rd());
 
         const auto value = distribution(engine);
-		if ((value / 100) < this->getAccuracy())
+		if (static_cast<float>(value) / 100.0f < this->getAccuracy())
 		{
 			u->takeHit(getProjectile());	
 		} else
